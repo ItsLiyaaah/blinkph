@@ -1,0 +1,601 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.booking-page {
+  min-height: 100vh;
+  background: #080808;
+  color: #ffffff;
+}
+
+.booking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(8,8,8,0.8);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.back-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.back-btn:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: #ffffff;
+}
+
+.booking-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.booking-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+.booking-intro {
+  margin-bottom: 3rem;
+}
+
+.booking-intro h1 {
+  font-size: 2.75rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.booking-intro p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #FFD700;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.required {
+  color: #FFD700;
+}
+
+.optional {
+  color: rgba(255,255,255,0.2);
+  font-weight: 400;
+  font-size: 0.75rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(255,215,0,0.5);
+  background: rgba(255,255,255,0.06);
+}
+
+.form-group select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.3)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.form-group select:focus {
+  border-color: rgba(255,215,0,0.5);
+  background-color: rgba(255,255,255,0.06);
+}
+
+.form-group select option {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+/* DatePicker custom styling */
+.datepicker-input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.datepicker-input::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+
+.datepicker-input:focus {
+  border-color: rgba(255,215,0,0.5);
+  background: rgba(255,255,255,0.06);
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker-popper {
+  z-index: 100;
+}
+
+.custom-calendar {
+  background: #1a1a1a !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 14px !important;
+  font-family: inherit !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5) !important;
+  overflow: hidden;
+}
+
+.custom-calendar .react-datepicker__header {
+  background: #111111 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  padding: 12px 0 8px !important;
+}
+
+.custom-calendar .react-datepicker__current-month {
+  color: #ffffff !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+}
+
+.custom-calendar .react-datepicker__day-name {
+  color: rgba(255,255,255,0.35) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+.custom-calendar .react-datepicker__day {
+  color: rgba(255,255,255,0.75) !important;
+  border-radius: 8px !important;
+  transition: background 0.15s ease !important;
+}
+
+.custom-calendar .react-datepicker__day:hover {
+  background: rgba(255,215,0,0.15) !important;
+  color: #FFD700 !important;
+}
+
+.custom-calendar .react-datepicker__day--selected {
+  background: #f5c842 !important;
+  color: #111111 !important;
+  font-weight: 700 !important;
+}
+
+.custom-calendar .react-datepicker__day--today {
+  border: 1px solid rgba(255,215,0,0.4) !important;
+  background: transparent !important;
+  color: #f5c842 !important;
+}
+
+.custom-calendar .react-datepicker__day--today.react-datepicker__day--selected {
+  background: #f5c842 !important;
+  color: #111 !important;
+}
+
+.custom-calendar .react-datepicker__day--disabled {
+  color: rgba(255,255,255,0.15) !important;
+  cursor: not-allowed !important;
+}
+
+.custom-calendar .react-datepicker__navigation-icon::before {
+  border-color: rgba(255,255,255,0.4) !important;
+}
+
+.custom-calendar .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+  border-color: #FFD700 !important;
+}
+
+/* Phone input with dial code */
+.phone-input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.phone-code-select {
+  width: 160px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 0.9rem 0.75rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.25s ease;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+
+.phone-code-select:focus {
+  border-color: rgba(255,215,0,0.5);
+}
+
+.phone-number-input {
+  flex: 1;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.submit-btn {
+  align-self: flex-start;
+  background: #FFD700;
+  color: #080808;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.submit-btn:hover {
+  background: #ffe44d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,215,0,0.25);
+}
+
+.form-notice {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.25);
+}
+
+.field-hint {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  border-left: 2px solid rgba(255,215,0,0.3);
+  padding-left: 0.6rem;
+}
+
+/* Step Indicator */
+.booking-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2.5rem;
+}
+
+.step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.3);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.step-dot.active {
+  background: #FFD700;
+  border-color: #FFD700;
+  color: #080808;
+}
+
+.step-line {
+  flex: 0 0 48px;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+/* Cost Summary */
+.cost-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cost-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.cost-disclaimer {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.4);
+  background: rgba(255,215,0,0.05);
+  border: 1px solid rgba(255,215,0,0.15);
+  border-radius: 8px;
+  padding: 0.85rem 1.1rem;
+  line-height: 1.6;
+}
+
+.cost-disclaimer strong {
+  color: #FFD700;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.summary-section {
+  background: #111111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summary-section h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #FFD700;
+  margin-bottom: 0.25rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.summary-row span:first-child {
+  color: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+}
+
+.summary-row span:last-child {
+  color: #ffffff;
+  text-align: right;
+  font-weight: 500;
+}
+
+.cost-breakdown {
+  background: #111111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cost-breakdown h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.cost-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.cost-row span:first-child {
+  color: rgba(255,255,255,0.5);
+}
+
+.cost-row span:first-child em {
+  font-style: normal;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  margin-left: 0.35rem;
+}
+
+.cost-row span:last-child {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.cost-row.cost-total {
+  border-bottom: none;
+  padding-bottom: 0;
+  padding-top: 0.25rem;
+}
+
+.cost-row.cost-total span:first-child {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cost-row.cost-total span:last-child {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFD700;
+}
+
+.cost-note {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.6;
+  margin-top: 0.25rem;
+}
+
+.send-error {
+  color: #ff6b6b;
+  background: rgba(255, 80, 80, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.cost-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+/* Success State */
+.booking-success {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem;
+  background: rgba(255,215,0,0.04);
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 16px;
+}
+
+.success-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #FFD700;
+  color: #080808;
+  font-size: 1.5rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-success h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.booking-success p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+
+.success-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.back-home-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.back-home-btn:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: #ffffff;
+}
